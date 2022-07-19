@@ -1,0 +1,42 @@
+<div class="add-modal">
+    <form action="/add-nomenclature" method="post">
+        <h3 class="form-title">Добавить товар</h3>
+        <img class="form-exit" src="/img/form-exit.svg" alt="">
+        <div class="group">      
+            <input type="text" required name="name">
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>Наименование</label>
+        </div>
+        <div class="input-line">
+            <div class="group">      
+                <input type="text" required name="artiqle">
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Артикул</label>
+            </div>
+            <div class="group">      
+                <input type="text" name="barcode" >
+                <span class="highlight"></span
+                <span class="bar"></span>
+                <label>Штрихкод</label>
+            </div>
+            <div class="group">      
+                <input type="text" required name="cost">
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Себестоимость</label>
+            </div>
+            <div class="group">      
+                <input type="text" required name="price">
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Цена продажи</label>
+            </div>
+        </div>
+        <div class="buttons-block">
+            <button class="save-button">Сохранить</button>
+            <div class="cancel-button">Отмена</div>
+        </div>
+    </form>
+</div>

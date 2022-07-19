@@ -1,0 +1,29 @@
+{{>left-menu}}
+
+
+<section class="cashbox-content page-content">
+    <div class="cashbox-content__menu">
+        <a href="cashbox/add" class="cashbox-add">Добавить точку продаж<img src="/img/add.svg" alt=""></a>
+    </div>
+    <div class="cashbox-content__list">
+        {{#if cashbox}}
+            {{#each cashbox}}
+                <div class="cashbox-item">
+                    <h3 class="cashbox-item__name">{{cashboxName}}</h3>
+                    <p class="cashbox-item__sales">Продажи: <span>{{sales}}</span></p>
+                    <p class="cashbox-item__summ">Наличных в кассе: <span>{{cash}}</span> ₸</p>
+                    <p class="cashbox-item__saller">Кассиров: <span>{{sellers.length}}</span></p>
+                    <p class="cashbox-item__storage">Привязанный склад: {{storage}}</p>
+                    <input type="hidden" name="id" {{_id}}>
+                    <div class="cashbox-item__button">
+                        <a href="/cashbox/edit/{{_id}}">Редактировать</a>
+                        <a href="cashbox/{{_id}}">Вход в кассу</a>
+                    </div>
+                    
+                </div>
+            {{/each}}
+        {{else}}
+            <h3>Требуется добавить точку продаж</h3>
+        {{/if}}
+    </div>
+</section>

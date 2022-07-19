@@ -1,0 +1,165 @@
+{{> left-menu }}
+
+<section class="page-content">
+    <h2>Аналитика за сегодня</h2>
+    <div class="day-analytic">
+        <div class="analytic-block">
+            <canvas class="analytic-points"></canvas>
+        </div>
+        <div class="analytic-block">
+             <canvas class="analytic-sallers"></canvas>
+        </div>
+    </div>
+    <h2>Аналитика за весь период</h2>
+    <div class="day-analytic full-time-analytic">
+        <div class="analytic-block">
+            <canvas class="full-analytic-points"></canvas>
+        </div>
+        <div class="analytic-block">
+             <canvas class="full-analytic-sallers"></canvas>
+        </div>
+    </div>
+    {{#each sallerArr.saller}}
+    <input class="ft-saller-name" type="hidden" name="list" value="{{this}}">
+    {{/each}}
+    {{#each pointArr.points}}
+    <input class="ft-points-name" type="hidden" name="list" value="{{this}}">
+    {{/each}}
+    {{#each daySallerData.saller}}
+    <input class="day-saller-name" type="hidden" name="list" value="{{this}}">
+    {{/each}}
+    {{#each dayPoints.points}}
+    <input class="day-saller-points" type="hidden" name="list" value="{{this}}">
+    {{/each}}
+</section>
+<script src="/js/chart.min.js"></script>
+<script>
+    const points = document.querySelector('.analytic-points')
+    const sallers = document.querySelector('.analytic-sallers')
+    const fullTimeSallers = document.querySelector('.full-analytic-sallers')
+    const fullTimePoints = document.querySelector('.full-analytic-points')
+    let ftPointsName = document.querySelectorAll('.ft-points-name')
+    let ftSallerName = document.querySelectorAll('.ft-saller-name')
+    let daySallerName = document.querySelectorAll('.day-saller-name')
+    let daySallerPoints = document.querySelectorAll('.day-saller-points')
+    ftSallerNameArr = []
+    ftSallePointArr = []
+    daySallePointArr = []
+    daySallerNameArr = []
+    
+    for (let i = 0; i < daySallerPoints.length; i++) {
+        daySallePointArr.push(daySallerPoints[i].value)
+    }
+    for (let i = 0; i < daySallerName.length; i++) {
+        daySallerNameArr.push(daySallerName[i].value)
+    }
+    for (let i = 0; i < ftSallerName.length; i++) {
+        ftSallerNameArr.push(ftSallerName[i].value)
+    }
+    for (let i = 0; i < ftPointsName.length; i++) {
+        ftSallePointArr.push(ftPointsName[i].value)
+    }
+    const fullTimeSallersChart = new Chart(fullTimeSallers, {
+        type: 'bar',
+        data: {
+            labels: ftSallerNameArr,
+            datasets: [{
+                label: '{{sallerArr.label}}',
+                data: [{{sallerArr.sum}}],
+                backgroundColor: [
+                    'rgb(0, 153, 48, 0.5)'
+                ],
+                borderColor: [
+                    'green'
+                ],
+                borderWidth: 2,
+                tension: 0.3
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    })
+    const fullTimePointsChart = new Chart(fullTimePoints, {
+        type: 'bar',
+        data: {
+            labels: ftSallePointArr,
+            datasets: [{
+                label: '{{pointArr.label}}',
+                data: [{{pointArr.sum}}],
+                backgroundColor: [
+                    'rgb(0, 153, 48, 0.5)'
+                ],
+                borderColor: [
+                    'green'
+                ],
+                borderWidth: 2,
+                tension: 0.3
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    })
+    const pointsChart = new Chart(points, {
+        type: 'bar',
+        data: {
+            labels: daySallePointArr,
+            datasets: [{
+                label: '{{dayPoints.label}}',
+                data: [{{dayPoints.sum}}],
+                backgroundColor: [
+                    'rgb(0, 153, 48, 0.5)'
+                ],
+                borderColor: [
+                    '#185F33'
+                ],
+                borderWidth: 2,
+                tension: 0.3
+            }]
+        },
+        options: {
+            indexAxis: 'y',
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    })
+    const sallersChart = new Chart(sallers, {
+        type: 'bar',
+        data: {
+            labels: daySallerNameArr,
+            datasets: [{
+                label: '{{daySallerData.label}}',
+                data: [{{daySallerData.sum}}],
+                backgroundColor: [
+                    'rgb(0, 153, 48, 0.5)'
+                ],
+                borderColor: [
+                    'green'
+                ],
+                borderWidth: 2,
+                tension: 0.3
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    })
+
+
+</script>

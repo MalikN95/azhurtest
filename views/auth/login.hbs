@@ -1,0 +1,23 @@
+<section class="login">
+    <img class="login-logo" src="/img/AzhurCRM.svg" alt="" srcset="">
+    <form action="auth" method="post">
+        <h1 class="login-header">Авторизация</h1>
+        {{#if loginError}}
+            <p class="login-err">{{loginError}}</p>
+        {{/if}}
+        <div class="group">      
+            <input type="text" required name="name">
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>Имя пользователия</label>
+        </div>
+            <div class="group">      
+            <input type="password" required name="password">
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>Пароль</label>
+        </div>
+
+        <button class="login-btn">Войти в систему</button>
+    </form>
+</section>

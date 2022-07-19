@@ -1,0 +1,84 @@
+.worker-content{
+    .worker-header{
+        color: $green;
+        font-weight: 500;
+        margin-top: 10px;
+    }
+    .worker-list{
+        display: flex;
+        flex-wrap: wrap;
+        .worker-card{
+            margin: 15px;
+            position: relative;
+            background: #F6FFF9;
+            border: 3px solid $green;
+            box-sizing: border-box;
+            border-radius: 14px;
+            padding: 15px;
+            width: 300px;
+            .worker-card__wrapper{
+                display: flex;
+                margin-bottom: 20px;
+                .worker-img{
+                    width: 45px;
+                    height: 45px;
+                    border-radius: 50%;
+                    background: rgba(255, 255, 255, 0.62);
+                    border: 1px solid #185F33;
+                    box-sizing: border-box;
+                    img{
+                        width: 100%;
+                    }
+                }
+                .worker-info{
+                    margin-left: 25px;
+                    color: $green;
+                    p{
+                        margin: 0;
+                        font-weight: 500;
+                        font-size: 16px;
+                    }
+                    .worker-info__name{
+                        margin-bottom: 4px;
+                    }
+                }
+            }
+            .acces{
+                color: $green;
+                font-weight: 500;
+                font-size: 14px;
+            }
+            .no-acces{
+                color: red;
+                font-weight: 500;
+                font-size: 14px;
+            }
+            .worker-item__edit{
+                cursor: pointer;
+                position: absolute;
+                bottom: 5px;
+                right: 5px;
+            }
+        }
+        .worker-item{
+            background: #F6FFF9;
+            border: 3px solid $green;
+            box-sizing: border-box;
+            border-radius: 14px;
+            padding: 15px;
+            margin: 15px;
+            width: 300px;
+            text-align: center;
+            .worker-item_header{
+                font-size: 25px;
+                color: $green;
+                margin: 0;
+            }
+            .worker-item_add{
+                margin: 15px auto;
+                width: 55px;
+                cursor: pointer;
+            }
+        }
+    }
+}

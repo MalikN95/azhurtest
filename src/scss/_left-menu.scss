@@ -1,0 +1,90 @@
+.left-menu{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background: $green;
+    .left-menu__logo{
+        border-bottom: 1px solid rgba(208, 169, 63, 0.4);
+        margin-bottom: 30px;
+        a{
+            width: 100%;
+            display: block;
+        }
+        img{
+            width: 90%;
+            padding: 15px;
+            margin-left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+    .left-menu__links{
+        display: flex;
+        flex-direction: column;
+        .menu-link{
+            padding: 10px 0 10px 30px;
+            font-weight: 700;
+            font-size: 18px;
+            color: #FFFFFF;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            img{
+                width: 25px;
+                margin-right: 20px;
+            }
+        }
+        .menu-link:hover{
+            box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.25);
+        }
+        .active{
+            color: $green;
+            background: #FFF;
+        }
+        .active-btn{
+            background-color: #205000;
+        }
+        /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+        .dropdown-container {
+            display: none;
+            background-color: #035000;
+            flex-direction: column;
+            a{
+                padding: 10px 0 10px 50px;
+                font-weight: 700;
+                font-size: 18px;
+                color: #FFFFFF;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+            }
+            .active{
+                color: $green;
+                background: #FFF;
+            }
+        }
+    }
+}
+
+.menu-hide{
+    width: 80px;
+    .left-menu__logo{
+        a{
+            width: 80px;
+            display: block;
+        }
+    }
+    .left-menu__links{
+        .menu-link{
+            padding: 10px;
+            img{
+                width: 30px;
+                margin: 0 auto;
+            }
+            span{
+                display: none;
+            }
+        }
+    }
+}

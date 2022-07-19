@@ -1,0 +1,70 @@
+{{> left-menu}}
+{{> add-worker}}
+
+<section class="new-posting new-revision page-content">
+    <form action="/revision/new" method="post">
+        <div class="layout">
+            <div class="posting-number">
+                <p class="posting-number-text"> Ревизия №_</p>
+                <input class="doc-number"  type="number" name="number" required readonly value="{{order}}">
+                <p class="posting-number-time">От:</p>
+                <input class="doc-date" type="text" name="date" required readonly>
+                <div class="posting-info-worker">
+                    <input type="hidden" name="storage" class="revision-storage" id="search-form-loc" required value="Дисконт">
+                    <div class="pos-rel">
+                        <div class="search-form__selector">
+                        <p class="search-form__label search-form__label--loc ">Выберите склад</p>
+                        </div>
+                        <ul class="search-form__dropdown">
+                            {{#each storage}}
+                                <li class="search-form__value " data-loc="search-form-loc">{{name}}</li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                </div>
+                <div class="posting-user">
+                    <p >Сотрудник: </p>
+                    <input type="text" name="worker" readonly value="{{user.workerName}}">
+                </div>
+ 
+            </div>
+        </div>
+        <div class="posting-search">
+            <div class="search-input">
+                <p class="revision-list">Выгрузить список</p>
+
+            </div>
+            <div class="search-list">
+                
+            </div>
+        </div>
+        
+        <table class="posting-table revision-table">
+            <thead>
+                <tr>
+                    <td class="item-status__head"></td>
+                    <td class="tb-name">Наименование</td>
+                    <td class="tb-artiqle">Артикул</td>
+                    <td class="tb-num">Должное кол-во:</td>
+                    <td class="tb-numtb-num__have">Имеется:</td>
+                    <td class="tb-num tb-num_diff">Разница:</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="posting-item revision-item">
+                    <td><div class="item-status"></div></td>
+                    <td><input type="text" placeholder="Наименование"  readonly></td>
+                    <td class="revision-item__article"><input type="text" name="artiqle" placeholder="Артикул" readonly></td>
+                    <td class="sum"><input class="revision-item__sum" type="text" placeholder="Кол-во" readonly> <span></span></td>
+                    <td><input class="revision-item__have" name="have" min="1" type="number" value="0" placeholder="0"></td>
+                    <td><input class="revision-item__diff" type="text" value="0" readonly> <span></span></td>
+                    <input name="itemId" type="hidden" value="">
+                </tr>
+            </tbody>
+        </table>
+        <button>Сохранить</button>
+    </form>
+    <div class="item-scan d-none">
+        <input placeholder="Сканирование товара" type="text" class="item-scan__input">
+    </div>
+</section>

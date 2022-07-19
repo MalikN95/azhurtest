@@ -1,0 +1,26 @@
+{{> left-menu }}
+
+
+<section class="add-cashbox page-content">
+    <h2 class="add-cashbox__title">Настройка новой точки продаж</h2>
+    <form class="add-form" action="add/new" method="post">
+        <div class="cashbox-wrapper">
+            <input name="cashboxName" type="text" placeholder="Наименование" required>
+            <div class="add-cashbox__storage">
+                <input type="hidden" name="storage" id="search-form-loc" required>
+                <div class="pos-rel">
+                    <div class="search-form__selector">
+                    <p class="search-form__label search-form__label--loc">Выберите склад</p>
+                    </div>
+                    <ul class="search-form__dropdown">
+                        {{#each storage}}
+                            <li class="search-form__value" data-loc="search-form-loc">{{name}}</li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <button class="save-btn" type="submit">Создать</button>
+    </form>
+</section>

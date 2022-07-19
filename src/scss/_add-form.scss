@@ -1,0 +1,104 @@
+.add-modal{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 2;
+    background: rgba(24, 95, 51, 0.27);
+    display: none;
+    form{
+        position: absolute;
+        z-index: 3;
+        top: 100px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 900px;
+        border: 1px solid #185F33;
+        box-sizing: border-box;
+        background-color: #FFF;
+        padding: 25px 55px 35px;
+        .form-title{
+            font-weight: 400;
+            font-size: 24px;
+            color: #185F33;
+            margin: 0;
+        }
+        .form-exit{
+            width: 25px;
+            height: 25px;
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            cursor: pointer;
+        }
+        .group{ 
+            margin-top: 50px;
+            position:relative; 
+        }
+        input 				{
+            font-size:18px;
+            padding:10px 10px 10px 5px;
+            display:block;
+            width:100%;
+            border:none;
+            border-bottom:2px solid $green;
+            &:focus{
+                outline: none;
+            }
+        }
+        label 				 {
+            color:$green; 
+            font-size:18px;
+            font-weight: 400;
+            position:absolute;
+            pointer-events:none;
+            left:5px;
+            top:10px;
+            transition:0.2s ease all; 
+            -moz-transition:0.2s ease all; 
+            -webkit-transition:0.2s ease all;
+        }
+        input:focus ~ label, input:valid ~ label 		{
+            top:-20px;
+            font-size:14px;
+        }
+        .input-line{
+            display: flex;
+            justify-content: space-between;
+            input{
+                width: 80%;
+            }
+        }
+        .buttons-block{
+            margin-top: 55px;
+            display: flex;
+            justify-content: space-between;
+            button{
+                font-weight: 700;
+                font-size: 24px;
+                color: #FFFFFF;
+                padding: 7px;
+                cursor: pointer;
+            }
+            .save-button{
+                width: 55%;
+                background: $lt-green;
+
+            }
+            .cancel-button{
+                width: 35%;
+                background: #FF0000;
+                text-align: center;
+                font-weight: 700;
+                font-size: 24px;
+                color: #FFFFFF;
+                padding: 7px;
+                cursor: pointer;
+            }
+        }
+    }
+}
+.modal-active{
+    display: block;
+}

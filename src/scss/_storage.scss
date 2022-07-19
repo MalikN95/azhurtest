@@ -1,0 +1,40 @@
+.storage-content{
+    .storage-header{
+        color: $green;
+        font-weight: 500;
+    }
+    .storage-list{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .storage-item{
+        display: block;
+        width: 300px;
+        height: 140px;
+        border-radius: 10px;
+        border: 2px $green solid;
+        padding: 25px 25px 45px;
+        box-sizing: border-box;
+        position: relative;
+        margin: 15px;
+        .storage-item_header{
+            color: $green;
+            margin-top: 0;
+            font-size: 25px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .storage-item_edit, .storage-item_add{
+            cursor: pointer;
+            img{
+                position: absolute;
+                bottom: 20px;
+                right: 20px;
+                width: 35px;
+                height: 35px;
+            }
+
+        }
+    }
+
+}

@@ -1,0 +1,20 @@
+
+<section class="barcode">
+    <div class="print"><img src="/img/printer.svg" alt=""></div>
+    <div class="list">
+        {{#each list}}
+            <div class="label">
+                <h1>{{name}}</h1>
+                <img src="/img/barcode/{{img}}" alt="">
+                <div class="footer">
+                    <div class="price-block">
+                        <p>Цена:</p>
+                        <p class="price">{{price}} <span>₸</span></p>
+                    </div>
+                    <div class="firma">Ажур</div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</section>
+

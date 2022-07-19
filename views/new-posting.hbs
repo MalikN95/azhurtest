@@ -1,0 +1,72 @@
+{{> left-menu}}
+
+<div class="import-exel-form">
+    <form action="/posting/import-exel" method="post" enctype="multipart/form-data">
+    <input class="doc-number"  type="hidden" name="number" required readonly value="{{order}}">
+    <input type="hidden" name="worker" readonly value="{{user.workerName}}">
+    <input class="doc-date" type="hidden" name="date" required readonly>
+    <input type="hidden" name="storage" id="search-form-loc" required>
+        <h3>Импрот товаров</h3>
+        <p>! Выберите файл с формате exel</p>
+        <input type="file" name="img">
+        <button>Сохранить</button>
+    </form>
+</div>
+
+<section class="new-posting page-content">
+    <form action="/posting/new" method="post">
+        <div class="layout">
+            <div class="posting-number">
+                <p class="posting-number-text"> Оприходывание №_</p>
+                <input class="doc-number"  type="number" name="number" required readonly value="{{order}}">
+                <p class="posting-number-time">От:</p>
+                <input class="doc-date" type="text" name="date" required readonly>
+                <div class="posting-info-worker">
+                    <input type="hidden" name="storage" id="search-form-loc" required>
+                    <div class="pos-rel">
+                        <div class="search-form__selector">
+                        <p class="search-form__label search-form__label--loc">Выберите склад</p>
+                        </div>
+                        <ul class="search-form__dropdown">
+                            {{#each storage}}
+                                <li class="search-form__value" data-loc="search-form-loc">{{name}}</li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                </div>
+                <div class="posting-user">
+                    <p >Сотрудник: </p>
+                    <input type="text" name="worker" readonly value="{{user.workerName}}">
+                </div>
+            </div>
+        </div>
+        <div class="posting-search">
+            <div class="search-input">
+                <p>Добавить позицию</p>
+                <input placeholder="Введите артикул или назавание" name="searchelem" type="text" class="posting-search__elem" value="">
+                <div class="menu-category import-exel">Импорт exel <img src="/img/sing.svg" alt=""></div>
+            </div>
+            <div class="search-list">
+                
+            </div>
+        </div>
+        
+        <table class="posting-table">
+            <thead>
+                <tr>
+                    <td class="tb-name">Название  <img src="/img/table-arr.svg" alt=""></td>
+                    <td class="tb-artiqle">Артикул <img src="/img/table-arr.svg" alt=""></td>
+                    <td class="tb-num">Количество <img src="/img/table-arr.svg" alt=""></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="posting-item">
+                    <td><input type="text" placeholder="Наименование"  readonly></td>
+                    <td><input type="text" placeholder="Артикул" readonly></td>
+                    <td><input type="text" placeholder="Количество" readonly> <span></span></td>
+                </tr>
+            </tbody>
+        </table>
+        <button>Сохранить</button>
+    </form>
+</section>

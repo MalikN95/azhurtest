@@ -1,0 +1,39 @@
+<div class="add-worker">
+    <form action="/worker/add-worker" method="post">
+        <h3 class="form-title">Добавить сотрудника</h3>
+        <div class="add-worker-wrapper">
+            <div class="group">      
+                <input type="text" required name="workerName">
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Имя</label>
+            </div>
+            <div class="group">      
+                <input type="text" required name="position">
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Должность</label>
+            </div>
+        </div>
+
+        <div class="system-access">
+            <div class="system-access-checbox">
+                <p>Доступ к системе</p>
+                <input class="system-access__check option-input checkbox" type="checkbox" name="systemAccess" value="false">
+            </div>    
+            <div class="system-access-password">
+                <div class="group">      
+                    <input type="text"  name="password">
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label>Пароль</label>
+                </div>
+            </div>     
+        </div>
+
+        <div class="buttons-block">
+            <button class="save-button">Добавить</button>
+            <div class="cancel-button">Отмена</div>
+        </div>
+    </form>
+</div>

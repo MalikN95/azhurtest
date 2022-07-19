@@ -1,0 +1,60 @@
+.new-revision{
+    .revision-list{
+        cursor: pointer;
+        border: 1px solid $green;
+        padding: 15px;
+        border-radius: 10px;
+        transition: .3s;
+        &:hover{
+            background-color: rgb(185, 240, 192);
+        }
+    }
+    .d-none{
+        display: none;
+    }
+    .item-status__head{
+        width: 25px;
+    }
+    .item-status{
+        width: 25px;
+        height: 25px;
+        margin: 0 auto;
+        background: white;
+    }
+    .item-status__ok{
+        background-color: green;
+    }
+    .item-status__extra{
+        background-color: rgb(255, 251, 0);
+    }
+    .item-scan{
+        border: 1px solid $green;
+        width: 400px;
+        position: fixed;
+        top: 140px;
+        right: 10px;
+        input{
+            box-sizing: border-box;
+            padding: 10px;
+            font-size: 25px;
+        }
+        
+    }
+    .revision-table{
+        input{
+            box-sizing: border-box;
+        }
+        .sum{
+            display: flex;
+        }
+        .tb-numtb-num__have{
+
+        }
+        .tb-num{
+            width: 130px;
+        }
+        .tb-artiqle{
+            width: 300px !important;
+        }
+    }
+}

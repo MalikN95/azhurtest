@@ -1,0 +1,41 @@
+{{> left-menu }}
+
+
+<section class="posting-content page-content">
+    <a href="/posting/new" class="new-posting">Новое оприходывание <img src="/img/add.svg" alt=""></a>
+
+    <h3 class="posting-header">Список оприходваний</h3>
+
+    <table class="posting-table">
+        <thead>
+            <tr>
+                <td class="tb-num">№<img src="/img/table-arr.svg" alt=""></td>
+                <td class="tb-date">Оприходывание от:  <img src="/img/table-arr.svg" alt=""></td>
+                <td class="tb-status">Сотрудник:<img src="/img/table-arr.svg" alt=""></td>
+                <td class="tb-storage">На склад:<img src="/img/table-arr.svg" alt=""></td>
+                <td class="tb-info">Подробнее</td>
+
+            </tr>
+        </thead>
+        <tbody>
+            {{#if nomen}}
+                {{#each nomen}}
+                <tr class="posting-item">
+                    <td class="tb-num">{{postingNum}}</td>
+                    <td class="tb-num">{{postingDate}}</td>
+                    <td class="tb-num">{{postingWorker}}</td>
+                    <td class="tb-num">{{postingStorage}}</td>
+                    <td class="tb-num"><a href="../posting/{{_id}}"><img src="/img/Information.svg" alt=""></a></td>
+                </tr>
+                {{/each}}
+            {{else}}
+                <tr class="nomenclature-item">
+                    <td></td>
+                    <td>Список пустой</td>
+                </tr>
+            {{/if}}
+
+        </tbody>
+    </table>    
+
+</section>

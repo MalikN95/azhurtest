@@ -1,0 +1,14 @@
+<div class="add-storage__form">
+    <form action="/cashbox/add-saller" method="post">
+        <h3 class="form-title">Добавить кассира</h3>
+        <div class="group">      
+            <input name="name" type="text" placeholder="Имя">
+            <input name="password" type="text" placeholder="Пароль" min="4">
+        </div>
+        <div class="buttons-block">
+            <button class="save-button">Сохранить</button>
+            <div class="cancel-button">Отмена</div>
+        </div>
+        <input type="hidden" name="id" value="{{cashboxItem._id}}">
+    </form>
+</div>

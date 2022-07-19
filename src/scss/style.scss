@@ -1,0 +1,39 @@
+@import "_variables";
+@import "_template";
+@import "_header";
+@import "_footer";
+@import "_left-menu";
+@import "_nomenclature";
+@import "_add-form";
+@import "_nomenclature-item";
+@import "_load";
+@import "_login";
+@import "_storage";
+@import "_add-storage";
+@import "_worker";
+@import "_add-worker";
+@import "_posting";
+@import "_cashbox";
+@import "_revision";
+@import "_analytic";
+
+
+
+
+
+
+
+
+.page-content{
+    margin-left: 250px;
+    padding: 80px 20px 20px 20px;
+}
+.menu-hide__contetnt{
+    margin-left: 80px;
+}
+.home-page{
+    h1{
+        text-align: center;
+        color: $green;
+    }
+}

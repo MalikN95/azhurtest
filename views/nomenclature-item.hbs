@@ -1,0 +1,79 @@
+<div class="nomenclature-card">
+    <form action="/nomenclature/edit" method="post" enctype="multipart/form-data">
+        <input type="text" name="name" value="{{nomenclatureItem.name}}" class="card-title">
+        <div class="item-info">
+            <div class="left-info">
+                <div class="item-characteristics">
+                    <p class="property">Цена:</p>
+                    <p class="value price"> <input  type="number" name="price" value="{{nomenclatureItem.price}}"> <span></span> <img class="item-edit" src="/img/item-edit.svg" alt=""> </p>
+                </div>
+                <div class="item-characteristics">
+                    <p class="property">Себестоимость:</p>
+                    <p class="value cost"><input  type="number" name="cost" value="{{nomenclatureItem.cost}}"> <span></span> <img class="item-edit" src="/img/item-edit.svg" alt=""></p>
+                </div>
+                <div class="item-characteristics">
+                    <p class="property">Артикул:</p>
+                    <p class="value"> <input  type="text" name="artiqle" value="{{nomenclatureItem.artiqle}}"> <img class="item-edit" src="/img/item-edit.svg" alt=""></p>
+                </div>
+                <div class="item-characteristics">
+                    <p class="property">Штрихкод:</p>
+                    <p class="value"> <input  type="text" name="barcode" value="{{nomenclatureItem.barcode}}"> <img class="item-edit" src="/img/item-edit.svg" alt=""></p>
+                </div>
+                <div class="item-characteristics">
+                    <p class="property">Остаток по складам:</p>
+                    <div class="item-characteristics-list">
+                        {{#each stor}} 
+                            <div class="item-characteristics-item">
+                                <p class="value">{{storageName}}</p>
+                                <p class="value">{{count}} {{@root.nomenclatureItem.unit}}</p>
+                            </div>
+                        {{/each}}
+                    </div>
+                    
+                </div>
+
+                <input type="hidden" name="id" value="{{nomenclatureItem._id}}">
+
+                <textarea class="item-description" name="item-description" id="item-description" placeholder="Описание..." rows="10"></textarea>
+            </div>
+            <div class="right-info">
+                <div class="item-photo">
+                    {{#if nomenclatureItem.img}}
+                        <img src="/{{nomenclatureItem.img}}" alt="">
+                    {{else}}
+                        <img src="/img/image.svg" alt="">
+                    {{/if}}
+                </div>
+                <input type="file" name="img">
+                <div class="item-category">
+                    <h3 class="item-category__title">
+                        Категория
+                    </h3>
+                    <p class="item-category__info">
+                        Шторы
+                    </p>
+                    <img class="item-edit" src="/img/item-edit.svg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="item-actions">
+            <button class="action-btn action-save">
+                Сохранить
+            </button>
+            <button class="action-btn action-close" onclick="window.close();">
+                Закрыть
+            </button> 
+            <div class="item-barcode">
+                <p>Печать штрих-кода</p>
+                <img src="/img/barcode.svg" alt="">
+            </div>
+        </div>
+    </form>
+</div>
+<form action="/nomenclature/barcode" method="post" class="barcode-print">
+    <img class="exit" src="/img/form-exit.svg" alt="">
+    <h3>Печать Штрих-кода</h3>
+    <input min="1" value="1" type="number" name="num" placeholder="Укажите количество">
+    <input type="hidden" name="id" value="{{nomenclatureItem._id}}">
+    <button>Подготовить форму</button>
+</form>

@@ -1,0 +1,53 @@
+<section class="left-menu">
+    <div class="left-menu__logo">
+        <a href="/">
+        <img src="/img/AzhurCRM.svg" alt="">
+        </a>
+    </div>
+    <div class="left-menu__links">
+        {{#if isAnalytics}}
+            <a href="/analytics" class="menu-link active"><img src="/img/analiticicon.svg" alt=""> <span>Аналитика</span> </a>
+        {{else}}
+            <a href="/analytics" class="menu-link"><img src="/img/analiticicon.svg" alt=""><span>Аналитика</span></a>
+        {{/if}}
+
+        {{#if isReport}}
+            <a href="/report" class="menu-link active"><img src="/img/report.svg" alt="Отчеты"><span>Отчеты</span></a>
+        {{else}}
+            <a href="/report" class="menu-link"><img src="/img/report.svg" alt="Отчеты"><span>Отчеты</span></a>
+        {{/if}}
+        {{#if isNomenclature}}
+            <button class="dropdown-btn menu-link active-btn"><img src="/img/nomenicon.svg" alt="">Номенклатура </button>
+            <div class="dropdown-container" style="display: flex;">
+                <a href="/nomenclature" class="menu-link menu-link active"><span>Товары</span></a>
+                <a href="/storage"><span>Остатки по складам</span></a>
+                <a href="/revision"><span>Ревизия</span></a>
+                <a href="/posting"><span>Оприходывания</span></a>
+                <a href="#"><span>Списания</span></a>
+                <a href="#"><span>Перемещения</span></a>
+            </div>    
+        {{else}}
+            <button class="dropdown-btn menu-link"><img src="/img/nomenicon.svg" alt="">Номенклатура </button>
+            <div class="dropdown-container">
+                <a href="/nomenclature"><span>Товары</span></a>
+                <a href="/storage"><span>Остатки по складам</span></a>
+                <a href="/revision"><span>Ревизия</span></a>
+                <a href="/posting"><span>Оприходывания</span></a>
+                <a href="#"><span>Списания</span></a>
+                <a href="#"><span>Перемещения</span></a>
+            </div>  
+        {{/if}}
+
+        {{#if isWorker}}
+            <a href="/worker" class="menu-link active"><img src="/img/workericon.svg" alt=""><span>Сотрудники</span></a>
+        {{else}}
+            <a href="/worker" class="menu-link"><img src="/img/workericon.svg" alt=""><span>Сотрудники</span></a>
+        {{/if}}
+        {{#if isCashbox}}
+            <a href="/cashbox" class="menu-link active"><img src="/img/kassa.svg" alt=""><span>Кассы</span></a>
+        {{else}}
+            <a href="/cashbox" class="menu-link"><img src="/img/kassa.svg" alt=""><span>Кассы</span></a>
+        {{/if}}
+        
+    </div>
+</section>

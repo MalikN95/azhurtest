@@ -1,0 +1,103 @@
+
+<div class="cashbox-menu">
+    <section class="cashbox__left-menu">
+        <div class="logo">
+            <img src="/img/AzhurKassa.svg" alt="" srcset="">
+        </div>
+        <div class="cashbox__saller">
+            <p class="cashbox__saller_position">Кассир: </p>
+            <div class="posting-info-worker">
+                
+                <div class="pos-rel">
+                    <div class="search-form__selector">
+                    <p class="search-form__label search-form__label--loc ">Выберите кассира</p>
+                    </div>
+                    <ul class="search-form__dropdown">
+                        {{#each cashbox.sellers}}
+                            <li class="search-form__value " data-loc="search-form-loc">{{sallerName}}</li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="cashbox__stotage">
+            <p>Склад: </p>
+            <p class="cashbox__storage_name">{{cashbox.storage}}</p>
+        </div>
+        <div class="cashbox__discount cashbox__stotage">
+            <p>Скидки: </p>
+            {{#if cashbox.discount}}
+            <p class="cashbox__storage_name">Разрешены</p>
+            {{else}}
+            <p class="cashbox__storage_name discount-no">Запрещены</p>
+            {{/if}}
+        </div>
+    </section>
+    <section class="cashbox__content">
+        <div class="cashbox__content_title">
+            <p>Новая продажа: № <span class="order-num">{{order}}</span></p> <p class="date">От: <input name="salesDate" type="text" value="0"></p>
+        </div>
+        <table class="cashbox__content_list">
+            <thead>
+                <tr>
+                    <td class="tb-name"><p>Наименование</p></td>
+                    <td class="tb-artiqle"><p>Артикул</p></td>
+                    <td class="tb-num"><p>Кол-во</p></td>
+                    <td class="tb-price"><p>Цена</p></td>
+                    {{#if cashbox.discount}}
+                    <td class="tb-discount"><p>Скидка</p></td>
+                    {{/if}}
+                    <td class="tb-price"><p>Сумма</p></td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody class="cashbox-list">
+                <tr class="nomenclature-item">
+                    <td><p>Список пуст</p></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section class="cashbox__right-menu">
+        <div class="nomen-search">
+            <p>Добавить товар:</p>
+            <div class="search-block">
+                <input class="nomen-search__artiqle" type="text" placeholder="Введите артикул">
+                <button class="nomen-search__button" type="submit"><img src="/img/Search....svg" alt="" srcset=""></button>
+            </div> 
+        </div>
+        <div class="final-result">
+            <p>Всего позиций: <span class="order-length">0</span></p>
+            <p class="to-pay">К оплате: <span class="final-sum">0 </span><span>₸</span></p>
+        </div>
+        <div class="nomen-pay">
+            <button class="pay-card"><p>Оплата картой</p> <img src="/img/CreditCard.svg" alt="" srcset=""></button>
+            <button class="pay-cash"><p>Оплата наличкой</p> <img src="/img/Cash.svg" alt="" srcset=""></button>
+        </div>
+        <div class="cashbox__calculate">
+            <p class="calculate-title">
+                Калькулятор расчета
+            </p>
+            <p class="to-pay">К оплате: <span class="final-sum">0 </span><span>₸</span></p>
+            <input class="contributed" type="number" placeholder="Внесенная сумма">
+            <p >Сдача <span class="change">0</span><span> ₸</span></p>
+        </div>
+        <form class="action-form" action="/cashbox" method="post">
+            <div class="info">
+                <input class="form-id" type="hidden" name="id">
+                <input class="form-name" type="hidden" name="name">
+                <input class="form-count" type="hidden" name="count">
+            </div>
+            <input type="hidden" name="saller" class="revision-storage" id="search-form-loc" required value="Не указано">
+            <input type="hidden" name="cashbox" value="{{cashbox.cashboxName}}">
+            <input type="hidden" name="storage" value="{{cashbox.storage}}">
+            <input type="hidden" name="day" class="sales-day">
+            <input class="form-date" type="hidden" name="date">
+            <input class="form-sum" type="hidden" name="sum">
+            <input class="form-num" type="hidden" name="num" value="{{order}}">
+            
+            <button class="go-pay">Оплата и печать чека</button>
+        </form>
+    </section>
+</div>
+<script src="/js/axios.js"></script>

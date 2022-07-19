@@ -1,0 +1,17 @@
+h1{
+    margin-top: 0 !important;
+    font-weight: 500;
+    margin-top: 10px;
+}
+.analytic-block{
+    border: 1px solid $green;
+    
+}
+.day-analytic{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+.analytic-block{
+    width: 48%;
+}

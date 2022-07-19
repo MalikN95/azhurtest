@@ -1,0 +1,34 @@
+{{> left-menu}}
+{{> add-worker}}
+
+<section class="worker-content page-content">
+    <h3 class="worker-header">Список сотрудников</h3>
+
+    <div class="worker-list">
+        {{#if users}}
+            {{#each users}}
+                <div class="worker-card">
+                    <div class="worker-card__wrapper">
+                        <div class="worker-img">
+                            <img src="/img/user-img.png" alt="">
+                        </div>
+                        <div class="worker-info">
+                            <p class="worker-info__name">{{workerName}}</p>
+                            <p class="worker-info__position">{{position}}</p>
+                        </div>
+                    </div>
+                    {{#if systemAccess}}
+                        <p class="acces">Дступ к ситеме: Имеется</p>
+                    {{else}}
+                       <p class="no-acces">Дступ к ситеме: Не имеется</p>
+                    {{/if}}
+                    <button class="worker-item__edit"><img src="/img/item-edit.svg" alt=""></button>
+                </div>
+            {{/each}}
+        {{/if}}
+        <div class="worker-item add-worker-card">
+            <h2 class="worker-item_header">Дабавить сотрудника</h2>
+            <button class="worker-item_add"><img src="/img/add-storage.svg" alt=""></button>
+        </div>
+    </div>
+</section>

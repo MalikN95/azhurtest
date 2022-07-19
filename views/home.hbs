@@ -1,0 +1,8 @@
+{{> left-menu }}
+<section class="page-content home-page">
+    {{#if user}}
+        <h1>Добро пожаловать! {{user.workerName}}</h1>
+    {{else}}
+        <h1>Добро пожаловать</h1>
+    {{/if}}
+</section>

@@ -1,0 +1,32 @@
+{{> left-menu }}
+{{> add-modal}}
+
+
+<section class="posting-info page-content">
+    <div class="posting-info__header">
+        <p class="posting-info__header_num">Информация о ревизии: №: <span>{{revisionItem.revisionNum}}</span></p>
+        <p class="posting-info__header_date">От: <span>{{revisionItem.revisionDate}}</span></p>
+    </div>
+     <div class="posting-info__wrapper">
+        <p class="posting-info__wrapper_worker">Ревизор: <span>{{revisionItem.revisionWorker}}</span></p>
+        <p class="posting-info__wrapper_storage">На складе: <span>{{revisionItem.revisionStorage}}</span></p>
+    </div>
+        <table class="posting-table">
+        <thead>
+            <tr>
+                <td class="tb-num">Артикул<img src="/img/table-arr.svg" alt=""></td>
+                <td class="tb-date">Наименование <img src="/img/table-arr.svg" alt=""></td>
+                <td class="tb-date">Количество <img src="/img/table-arr.svg" alt=""></td>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each revisionItem.list}}
+                <tr class="posting-item">
+                    <td class="tb-num">{{revArtiqle}}</td>
+                    <td class="tb-num"><a href="../nomenclature/{{_id}}" target="_blank">{{revItemName}}</a></td>
+                    <td class="tb-num">{{revCount}}</td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table> 
+</section>

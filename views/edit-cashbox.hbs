@@ -1,0 +1,61 @@
+{{> left-menu }}
+{{> add-saller}}
+
+<section class="add-cashbox page-content">
+    <h2 class="add-cashbox__title">Настройка точки продаж</h2>
+
+    <form class="add-form" action="update" method="post">
+        <div class="cashbox-wrapper">
+            <input name="cashboxName" type="text" placeholder="Наименование" required value="{{cashboxItem.cashboxName}}">
+            <div class="add-cashbox__storage">
+                <input type="hidden" name="storage" id="search-form-loc" required value="{{cashboxItem.storage}}">
+                <input type="hidden" name="id" required value="{{cashboxItem._id}}">
+                <div class="pos-rel">
+                    <div class="search-form__selector">
+                    <p class="search-form__label search-form__label--loc">{{cashboxItem.storage}}</p>
+                    </div>
+                    <ul class="search-form__dropdown">
+                        {{#each storage}}
+                            <li class="search-form__value" data-loc="search-form-loc">{{name}}</li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+            <div class="cashbox-discont">
+                {{#if cashboxItem.discount}}
+                <input checked class="checkbox" type="checkbox" placeholder="Разрешить скидку?">
+                <input class="checkbox-hidden" type="hidden" name="discount" value="true">
+                {{else}}
+                <input class="checkbox" type="checkbox" placeholder="Разрешить скидку?">
+                <input class="checkbox-hidden" type="hidden" name="discount" value="false">
+                {{/if}}
+                <p>Разрешить скидку?</p>
+            </div>
+        </div>
+
+        <div class="cashbox-sallers">
+            <h3>Список кассиров</h3>
+            <div class="sallers-list">
+                {{#each cashboxItem.sellers}}
+                    <div class="saller-list__form">
+                        <div class="position">
+                            <img src="/img/saller.svg" alt="">
+                            <p>Кассир</p>
+                        </div>
+                        <input class="saller-name" type="text" name="sallerName" placeholder="Имя" value="{{sallerName}}">
+                        <div class="password-block">
+                            <input class="saller-passw" type="password" name="sallerPassword" placeholder="Pin" value="{{sallerPassword}}">
+                            <img class="show-passw"  src="/img/show.svg" alt="">
+                        </div>
+                    </div>
+                {{/each}}
+                    <div class="saller-list__form saller-list__add storage-item_add">
+                        <p>Добавить кассира</p>
+                        <img src="/img/add.svg" alt="">
+                    </div>
+            </div>
+
+        </div>
+        <button class="save-btn" type="submit">Сохранить</button>
+    </form>
+</section>

@@ -1,0 +1,57 @@
+<header class="header">
+    <div class="header-content">
+        <button class="hide-menu">
+            <img src="/img/hide-btn.svg" alt="">
+        </button>
+        <div class="header-search">
+            <input type="text" placeholder="Поиск...">
+            <img src="/img/search-header.svg" alt="">
+        </div>
+        <h2 class="header-title">{{title}}</h2>
+        <div class="header-currency">
+            <img src="/img/ubdate.svg" alt="" class="currency-update">
+            <p>USD: <span>{{currency.usd}}</span>₸</p>
+            <p>EUR: <span>{{currency.euro}}</span>₸</p>
+            <p>RUB: <span>{{currency.rub}}</span>₸</p>
+        </div>
+        <div class="header-buttons">
+            <button class="header-notification">
+                <img src="/img/header-notification.svg" alt="">
+            </button>
+            <button class="header-setting">
+                <img src="/img/header-setting.svg" alt="">
+            </button>
+            <button class="header-logout">
+                <a href="">
+                    <img src="/img/logout.png" alt="">
+                </a>
+            </button>
+        </div>
+
+    </div>
+    <div class="user-content">
+        <div class="user-content__img">
+            <img src="/img/user-img.png" alt="">
+        </div>
+        {{#if user}}
+            <div class="user-content__info">
+                <p class="user-name">
+                    {{user.workerName}}
+                </p>
+                <p class="user-position">
+                    {{user.position}}
+                </p>
+            </div>
+        {{else}}
+            <div class="user-content__info">
+                <p class="user-name">
+                    Пользователь
+                </p>
+                <p class="user-position">
+                    Должность
+                </p>
+            </div>
+        {{/if}}
+
+    </div>
+</header>

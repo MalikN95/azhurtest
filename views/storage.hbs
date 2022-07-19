@@ -1,0 +1,24 @@
+{{> left-menu }}
+{{> add-storage}}
+
+<section class="storage-content page-content">
+    <h3 class="storage-header">Выберите склад</h3>
+
+    <div class="storage-list">
+        {{#if storage}}
+            {{#each storage}}
+                <div class="storage-item">
+                    {{#each list}}
+                        <p>{{num}}</p><p>{{nomenId}}</p>
+                    {{/each}}
+                    <a href="storage/{{_id}}" class="storage-item_header">{{name}}</a>
+                    <button class="storage-item_edit"><img src="/img/item-edit.svg" alt=""></button>
+                </div>
+            {{/each}}
+        {{/if}}
+        <div class="storage-item add-storage">
+            <h2 class="storage-item_header">Дабавить склад</h2>
+            <button class="storage-item_add"><img src="/img/add-storage.svg" alt=""></button>
+        </div>
+    </div>
+</section>

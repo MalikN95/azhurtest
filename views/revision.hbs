@@ -1,0 +1,41 @@
+{{> left-menu}}
+{{> add-worker}}
+
+<section class="posting-content page-content">
+    <a href="/revision/new" class="new-posting new-rev">Новая ревизия <img src="/img/add.svg" alt=""></a>
+
+    <h3 class="posting-header">Список ревизий</h3>
+
+    <table class="posting-table">
+        <thead>
+            <tr>
+                <td class="tb-num">№<img src="/img/table-arr.svg" alt=""></td>
+                <td class="tb-date">Начало ревизии:  <img src="/img/table-arr.svg" alt=""></td>
+                <td class="tb-status">Отв. ревизор:<img src="/img/table-arr.svg" alt=""></td>
+                <td class="tb-storage">На складе:<img src="/img/table-arr.svg" alt=""></td>
+                <td class="tb-info">Подробнее</td>
+
+            </tr>
+        </thead>
+        <tbody>
+            {{#if revision}}
+                {{#each revision}}
+                <tr class="posting-item">
+                    <td class="tb-num">{{revisionNum}}</td>
+                    <td class="tb-num">{{revisionDate}}</td>
+                    <td class="tb-num">{{revisionWorker}}</td>
+                    <td class="tb-num">{{revisionStorage}}</td>
+                    <td class="tb-num"><a href="../revision/{{_id}}"><img src="/img/Information.svg" alt=""></a></td>
+                </tr>
+                {{/each}}
+            {{else}}
+                <tr class="nomenclature-item">
+                    <td></td>
+                    <td>Список пустой</td>
+                </tr>
+            {{/if}}
+
+        </tbody>
+    </table>    
+
+</section>

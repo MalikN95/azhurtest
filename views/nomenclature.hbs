@@ -1,0 +1,87 @@
+{{> left-menu }}
+{{> add-modal}}
+{{> import-form}}
+{{> barcode-list}}
+
+<section class="nomenclature-content page-content">
+                
+    <div class="nomenclature-content__menu">
+        <button class="menu-add">Создать <img src="/img/add.svg" alt=""></button>
+        <form action="/nomenclature" method="post">
+            <input name="name" class="menu-search" type="text" placeholder="Поиск по товару...">
+            {{#if storage}}
+            <input type="hidden" name="storage" value="{{storage._id}}">
+            {{/if}}
+            <button>Поиск</button>
+        </form>
+        <button class="menu-category">Категории <img src="/img/arr-down.svg" alt=""></button>
+        {{#if isNomenclature}}
+        <button class="menu-category import-exel">Импорт exel <img src="/img/sing.svg" alt=""></button>
+        {{/if}}
+        <button onclick="pagePrint()" class="menu-category menu-category__print"><img src="/img/printer.svg" alt=""></button>
+        <button class="menu-category menu-category__print menu-category__barcode"><img src="/img/barcode.svg" alt=""></button>
+    </div>
+
+    <table class="nomenclature-table">
+        <thead>
+            <tr> 
+                <td class="tb-checkbox"></td>
+                <td class="tb-name">Наименование <img src="/img/table-arr.svg" alt=""></td>
+                <td class="tb-artiqle">Артикул <img src="/img/table-arr.svg" alt=""></td>
+                <td class="tb-img">Фото <img src="/img/table-arr.svg" alt=""></td>
+                <td class="tb-num">Кол-во <img src="/img/table-arr.svg" alt=""></td>
+                <td class="tb-cost">Себес<img src="/img/table-arr.svg" alt=""></td>
+                <td class="tb-price">Цена продажи <img src="/img/table-arr.svg" alt=""></td>
+            </tr>
+        </thead>
+        <tbody>
+            {{#if nomen}}
+                {{#each nomen}}
+                    <tr class="nomenclature-item">
+                        <td class="tb-checkbox"> <input type="checkbox" value="{{_id}}"></td>
+                        <td><a href="../nomenclature/{{_id}}" target="_blank">{{name}}</a></td>
+                        <td>{{artiqle}}</td>
+                        {{#if img}}
+                            <td><img src=/{{img}}  alt=""></td>
+                        {{else}}
+                            <td><img src="/img/image.svg" alt=""></td>
+                        {{/if}}
+                        <td class="num">{{num}} <span>{{unit}}</span></td>
+                        <td class="cost">{{cost}} <span></span></td>
+                        <td class="price">{{price}} <span></span></td>
+                    </tr>
+                {{/each}}
+            {{else}}
+                <tr class="nomenclature-item">
+                    <td></td>
+                    <td>Список пустой</td>
+                </tr>
+            {{/if}}
+
+        </tbody>
+    </table>
+    {{#if result}}
+        {{user.workerName}}
+        <table class="nomenclature-table">
+        <thead>
+            <tr>
+                <td>Итоговая себестоимость</td>
+                <td>Итоговая цена продажи</td>
+                <td>Итоговый доход</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="nomenclature-item">
+                <td class="intl-format">{{costSum}} <span>₸</span> <input type="hidden" value="{{costSum}}"></td>
+                <td class="intl-format">{{priceSum}} <span>₸</span> <input type="hidden" value="{{priceSum}}"></td>
+                <td class="intl-format">{{result}} <span>₸</span> <input type="hidden" value="{{result}}"></td>
+            </tr>
+
+        </tbody>
+    </table>
+    {{/if}}
+
+    {{#if allButton}}
+        <a href="/nomenclature/all">Показать все товары. (Может занять до 30-и секунд)</a>
+    {{/if}}
+</section>
